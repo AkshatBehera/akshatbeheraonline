@@ -56,7 +56,7 @@ const X = () => {
             </div>
           </div>
 
-          {/* My Twitter Feed */}
+          {/* My X Feed */}
           <div className="p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center">
@@ -66,7 +66,7 @@ const X = () => {
               <a
                 href="https://twitter.com/akshatbehera"
                 className="twitter-follow-button"
-                data-size="large"
+                data-size="medium"
                 data-show-count="false"
               >
                 Follow @akshatbehera
@@ -79,7 +79,7 @@ const X = () => {
                 data-height="500"
                 data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}
               >
-                Tweets by @akshatbehera
+                Posts by @akshatbehera - Timeline
               </a>
             </div>
           </div>
