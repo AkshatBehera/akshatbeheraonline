@@ -21,7 +21,7 @@
     background-repeat: no-repeat;
   }
 
-  /* Light mode styles - default no background image */
+  /* Light mode styles - no background image */
   body {
     @apply min-h-screen bg-white;
   }
@@ -38,20 +38,20 @@
     z-index: -1;
   }
 
-  /* Light mode profile image on the left (desktop) */
+  /* Light mode profile image on the left */
   body::after {
     content: '';
     display: none; /* Hidden by default in dark mode */
   }
 
-  /* Show profile image on the left in light mode for desktop */
+  /* Show profile image on the left in light mode */
   :root:not(.dark) body::after {
     content: '';
     display: block;
     position: fixed;
     top: 0;
     left: 0;
-    width: 35%;
+    width: 35%; /* Works well on desktop */
     height: 100%;
     background-image: url('/images/profile.jpg');
     background-size: cover;
@@ -59,44 +59,18 @@
     z-index: -1;
   }
 
-  /* Mobile: Use profile image as full background in light mode */
+  /* Hide profile image and adjust layout on mobile in light mode */
   @media (max-width: 768px) {
-    :root:not(.dark) body {
-      background-image: url('/images/profile.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-    }
-
-    /* Hide the ::after pseudo-element on mobile since body now handles the background */
     :root:not(.dark) body::after {
-      display: none;
+      display: none; /* Hide image entirely on mobile */
     }
-
-    /* Add a semi-transparent overlay for readability */
-    :root:not(.dark) body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 255, 255, 0.7); /* Light overlay */
-      z-index: -1;
-    }
-
-    /* Reset main container for mobile */
+    
     :root:not(.dark) main .container {
-      @apply max-w-full mx-auto px-4;
-      margin-left: 0;
-      margin-right: 0;
-      background-color: transparent; /* Transparent content background */
-    }
-
-    /* Ensure tweet cards have a readable background */
-    :root:not(.dark) .bg-white {
-      background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white */
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 100%; /* Full width on mobile */
+      padding-left: 1rem; /* Consistent padding */
+      padding-right: 1rem;
     }
   }
 
@@ -147,6 +121,15 @@
     margin-left: calc(35% + 2rem); /* Align with profile image on desktop */
   }
 
+  /* Override for mobile */
+  @media (max-width: 768px) {
+    :root:not(.dark) main .container {
+      @apply max-w-full mx-auto; /* Full width, centered on mobile */
+      margin-left: 0; /* Remove offset */
+      margin-right: 0;
+    }
+  }
+  
   /* Keep navbar and footer containers full width */
   header .container,
   footer .container {
