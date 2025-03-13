@@ -1,0 +1,130 @@
+@import './fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Gotham', sans-serif;
+    font-weight: 300;
+  }
+  
+  /* Dark mode styles - background image as full page background */
+  .dark body {
+    @apply min-h-screen;
+    background-image: url('/images/profile.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  /* Light mode styles - no background image */
+  body {
+    @apply min-h-screen bg-white;
+  }
+
+  /* Dark mode overlay */
+  .dark body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark overlay for readability */
+    z-index: -1;
+  }
+
+  /* Light mode profile image on the left */
+  body::after {
+    content: '';
+    display: none; /* Hidden by default in dark mode */
+  }
+
+  /* Show profile image on the left in light mode */
+  :root:not(.dark) body::after {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 35%; /* Reduced from 40% to prevent overlap */
+    height: 100%;
+    background-image: url('/images/profile.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
+  /* Hide profile image on smaller screens in light mode */
+  @media (max-width: 768px) {
+    :root:not(.dark) body::after {
+      width: 0; /* Hide on mobile */
+    }
+    
+    :root:not(.dark) main .container {
+      margin-left: auto;
+      max-width: 100%;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Gotham', sans-serif;
+    font-weight: 300;
+  }
+
+  p, span, a, button, input, textarea {
+    font-family: 'Gotham', sans-serif;
+    font-weight: 300;
+  }
+}
+
+@layer components {
+  /* Default container for both modes */
+  .container {
+    @apply px-4 mx-auto max-w-7xl;
+  }
+  
+  .btn {
+    @apply px-6 py-2 font-light transition-all duration-300 rounded-md;
+  }
+  
+  .btn-primary {
+    @apply text-black bg-white dark:text-black dark:bg-white hover:opacity-90;
+  }
+  
+  .btn-primary-dark {
+    @apply text-white bg-black hover:opacity-90;
+  }
+  
+  .btn-outline {
+    @apply border border-white dark:border-white text-black dark:text-white hover:bg-white hover:dark:bg-white hover:text-black dark:hover:text-black;
+  }
+  
+  .section {
+    @apply py-16;
+  }
+  
+  .section-title {
+    @apply mb-8 text-3xl font-light text-center md:text-4xl;
+  }
+
+  /* Adjust main content container in light mode to make space for the profile image */
+  :root:not(.dark) main .container {
+    @apply ml-auto mr-4 max-w-[60%];
+    margin-left: calc(35% + 2rem); /* Align with the profile image width plus some spacing */
+  }
+  
+  /* Keep navbar container full width in both modes */
+  header .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+  
+  /* Keep footer container full width in both modes */
+  footer .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+} 
