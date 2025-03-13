@@ -24,12 +24,12 @@ const X = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container px-4 sm:px-6">
-        <h1 className="mb-8 text-3xl font-bold text-center md:text-5xl md:mb-12">My X Feed</h1>
+        <h1 className="mb-8 text-3xl font-bold text-center md:text-5xl md:mb-12">X Feed</h1>
 
         <div className="max-w-3xl mx-auto">
           {/* Featured Tweets Section */}
           <div className="mb-8">
-            <h2 className="mb-4 text-2xl font-semibold text-center">Featured Tweets</h2>
+            <h2 className="mb-4 text-2xl font-semibold text-center">Featured Posts</h2>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {/* Left column - Elon Musk Tweets */}
@@ -37,20 +37,20 @@ const X = () => {
                 {/* Tweet 1 */}
                 <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-4">
                   <blockquote className="twitter-tweet" data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}>
-                    <a href="https://twitter.com/elonmusk/status/1836289127907758312">Tweet</a>
+                    <a href="https://twitter.com/elonmusk/status/1836289127907758312">Post - Elon Musk @elonmusk - Any sufficiently advanced magic is indistinguishable from technology - 1:20 AM CST / Sep 18, 2024 </a>
                   </blockquote>
                 </div>
                 {/* Tweet 2 */}
                 <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-4">
                   <blockquote className="twitter-tweet" data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}>
-                    <a href="https://twitter.com/elonmusk/status/1637039810488483841">Tweet</a>
+                    <a href="https://twitter.com/elonmusk/status/1637039810488483841">Post - Elon Musk @elonmusk - Engineering is true magic - 5:34 AM CST / Mar 18, 2023 </a>
                   </blockquote>
                 </div>
               </div>
               {/* Right column - SMX Tweet */}
               <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-4">
                 <blockquote className="twitter-tweet" data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}>
-                  <a href="https://twitter.com/SpaceX/status/1883097869709971535">Tweet</a>
+                  <a href="https://twitter.com/SpaceX/status/1883097869709971535">Post - SMX @iam_smx - "Engineering and technology is the closest thing to Magic." - Elon Musk -  4:21 AM CST / Jan 25, 2025</a>
                 </blockquote>
               </div>
             </div>
