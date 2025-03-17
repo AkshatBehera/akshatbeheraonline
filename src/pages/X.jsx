@@ -4,15 +4,30 @@ import { RiTwitterXFill } from 'react-icons/ri';
 
 const X = () => {
   useEffect(() => {
-    // Load Twitter widgets script
-    const script = document.createElement('script');
-    script.src = 'https://platform.twitter.com/widgets.js';
-    script.async = true;
-    document.body.appendChild(script);
+    // Load Twitter widgets.js if not already present
+    if (!document.querySelector('script[src="https://platform.twitter.com/widgets.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://platform.twitter.com/widgets.js';
+      script.async = true;
+      script.charSet = 'utf-8';
+      script.onload = () => {
+        // Ensure timeline loads after script is ready
+        if (window.twttr && window.twttr.widgets) {
+          window.twttr.widgets.load();
+          console.log('Twitter widgets loaded'); // Debug
+        }
+      };
+      document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    };
+      return () => {
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+      };
+    } else if (window.twttr && window.twttr.widgets) {
+      // If script is already loaded, trigger widget load
+      window.twttr.widgets.load();
+    }
   }, []);
 
   return (
@@ -36,21 +51,36 @@ const X = () => {
               <div className="space-y-6">
                 {/* Tweet 1 */}
                 <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-4">
-                  <blockquote className="twitter-tweet" data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}>
-                    <a href="https://twitter.com/elonmusk/status/1836289127907758312">Post - Elon Musk @elonmusk - Any sufficiently advanced magic is indistinguishable from technology - 1:20 AM CST / Sep 18, 2024 </a>
+                  <blockquote
+                    className="twitter-tweet"
+                    data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}
+                  >
+                    <a href="https://twitter.com/elonmusk/status/1836289127907758312">
+                      Post - Elon Musk @elonmusk - Any sufficiently advanced magic is indistinguishable from technology - 1:20 AM CST / Sep 18, 2024
+                    </a>
                   </blockquote>
                 </div>
                 {/* Tweet 2 */}
                 <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-4">
-                  <blockquote className="twitter-tweet" data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}>
-                    <a href="https://twitter.com/elonmusk/status/1637039810488483841">Post - Elon Musk @elonmusk - Engineering is true magic - 5:34 AM CST / Mar 18, 2023 </a>
+                  <blockquote
+                    className="twitter-tweet"
+                    data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}
+                  >
+                    <a href="https://twitter.com/elonmusk/status/1637039810488483841">
+                      Post - Elon Musk @elonmusk - Engineering is true magic - 5:34 AM CST / Mar 18, 2023
+                    </a>
                   </blockquote>
                 </div>
               </div>
               {/* Right column - SMX Tweet */}
               <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md p-4">
-                <blockquote className="twitter-tweet" data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}>
-                  <a href="https://twitter.com/SpaceX/status/1883097869709971535">Post - SMX @iam_smx - "Engineering and technology is the closest thing to Magic." - Elon Musk -  4:21 AM CST / Jan 25, 2025</a>
+                <blockquote
+                  className="twitter-tweet"
+                    data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}
+                >
+                  <a href="https://twitter.com/SpaceX/status/1883097869709971535">
+                    Post - SMX @iam_smx - "Engineering and technology is the closest thing to Magic." - Elon Musk - 4:21 AM CST / Jan 25, 2025
+                  </a>
                 </blockquote>
               </div>
             </div>
@@ -75,7 +105,7 @@ const X = () => {
             <div className="overflow-hidden rounded-lg">
               <a
                 className="twitter-timeline"
-                href="https://twitter.com/akshatbehera"
+                href="https://twitter.com/akshatbehera?ref_src=twsrc%5Etfw"
                 data-height="500"
                 data-theme={document.documentElement.classList.contains('dark') ? 'dark' : 'light'}
               >
