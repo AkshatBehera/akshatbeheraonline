@@ -50,7 +50,7 @@ const booksReading = [
   {
     id: 1,
     title: 'The Technological Republic',
-    author: 'Alexancer C. Karp and Nicholas W. Zamiska',
+    author: 'Alexander C. Karp and Nicholas W. Zamiska',
     cover: 'images/books/techrepublic.png',
     progress: 65,
   },
