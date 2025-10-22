@@ -17,7 +17,7 @@ const Footer = () => {
           
           <div className="flex items-center space-x-4">
             <a 
-              href="https://instagram.com/akshatbehera" 
+              href="https://instagram.com/akshatbeheraonline" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 text-gray-600 transition-colors rounded-full dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"

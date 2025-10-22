@@ -50,23 +50,23 @@ const booksReading = [
   {
     id: 1,
     title: 'The Technological Republic',
-    author: 'Alexancer C. Karp and Nicholas W. Zamiska',
+    author: 'Alexander C. Karp and Nicholas W. Zamiska',
     cover: 'images/books/techrepublic.png',
-    progress: 65,
+    progress: 70,
   },
   {
     id: 2,
     title: 'The Contrarian - Peter Thiel',
     author: 'Max Chafkin',
     cover: 'images/books/contrarian.png',
-    progress: 40,
+    progress: 45,
   },
   {
     id: 3,
     title: 'The Moon is a Harsh Mistress',
     author: 'Robert A. Heinlein',
     cover: 'images/books/moon.png',
-    progress: 25,
+    progress: 30,
   },
 ]
 
