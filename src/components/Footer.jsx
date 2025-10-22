@@ -26,7 +26,7 @@ const Footer = () => {
               <FiInstagram size={20} />
             </a>
             <a 
-              href="https://twitter.com/akshatbehera" 
+              href="https://x.com/akshatbehera" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-2 text-gray-600 transition-colors rounded-full dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
