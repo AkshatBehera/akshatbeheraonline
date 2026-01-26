@@ -9,4 +9,4 @@ This project is licensed under the MIT License © Akshat Behera
 - **Build Tool**: Vite
 - **Deployment**: GitHub Pages
 
-Copyright © 2025 Akshat Behera
+Copyright © 2026 Akshat Behera
